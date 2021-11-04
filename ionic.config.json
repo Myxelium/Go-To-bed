@@ -1,0 +1,8 @@
+{
+  "name": "GoToBed",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "b295df72"
+}
