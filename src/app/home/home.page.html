@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +12,14 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card class="noselect" (click)="presentAlert('shutdown')">
+    <ion-card-header>
+      <ion-card-title>Shutdown</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-icon name="alert-circle-outline"></ion-icon>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
