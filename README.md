@@ -49,7 +49,7 @@ In the meanwhile can I recommend: [Wake on lan](https://play.google.com/store/ap
 ## Can I use this outside my own network?
 You'll need to portforward your router so the App can connect to your Pc.
 This might help you on the way:
-* Common router addresses are: [192.168.1.1](192.168.1.1), [192.168.0.1](192.168.0.1) 
+* Common router addresses are: [192.168.1.1](http://192.168.1.1), [192.168.0.1](http://192.168.0.1) 
 * Once reached the router login screen you'll need to login.
 Common User and passwords are either blank or `Admin` / `Administrator`.
 * Once logged in (This looks different on every router brand), but look for something called `WAN` or `PortForward`
