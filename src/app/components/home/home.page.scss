@@ -1,0 +1,22 @@
+ion-icon {font-size: 64px;}
+ion-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 37px;
+}
+ion-card-content, ion-card-header {
+    background-color: #560051;
+    cursor: pointer;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+ion-icon {color: #ffffff;}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GoToBed</string>
+    <string name="title_activity_main">GoToBed</string>
+    <string name="package_name">op.ionic.starter</string>
+    <string name="custom_url_scheme">op.ionic.starter</string>
+</resources>
