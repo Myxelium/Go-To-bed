@@ -30,8 +30,9 @@ Server:
 ## What do I need to get this working?
 You'll need to Install the Client APK file on your Android phone and download and run the "GoToBed" server on your pc so there is a connection between your phone and computer.
 
-Client: APK Download (Beta)
-Server: EXE Download
+Client: [APK Download (Beta)](https://github.com/Myxelium/go-to-bed/raw/master/Binaries/GoToBed.apk)
+
+Server: [EXE Download](https://github.com/Myxelium/go-to-bed/raw/master/Binaries/GoToBed.exe)
 
 ### ios devices
 I haven't built the server or the application on either Mac or Ios devices, but there shouldn't be anything stopping you doing so. Both the server and client is build with Node (Server: Electron, Client: Ionic Capacitor/Cordova).
