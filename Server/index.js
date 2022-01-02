@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog } = require('electron')
+const { app, dialog } = require('electron')
 const system = require('electron-shutdown-command');
 const express = require('express')
 const cors = require('cors');
@@ -9,6 +9,8 @@ const firstRun = require('electron-first-run');
 
 const autoLaunch = new AutoLaunch({
   name: 'GoToBed Server',
+  path: process.env.PORTABLE_EXECUTABLE_DIR + '/GoToBed.exe',
+
 });
 const paramPort = app.commandLine.getSwitchValue("port") == "" ? "3000" : app.commandLine.getSwitchValue("port");
 const isFirstRun = firstRun();
@@ -27,7 +29,6 @@ server.use(cors({
   exposedHeaders: ['Access-Control-Allow-Origin', '*'],
 }))
 server.post('/commandbridge', function (req, res) {
-  console.log(req.body.command)
   switch (req.body.command) {
     case 'shutdown':
         console.log('shutting down')

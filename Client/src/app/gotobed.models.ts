@@ -1,13 +1,13 @@
-export const AddressStorageKey = "AddressKey";
-export const PortStorageKey = "PortKey";
-export const ProtocolStorageKey = "ProtocolKey";
-export const CommandStorageKey = "CommandKey";
+export const addressStorageKey = 'AddressKey';
+export const portStorageKey = 'PortKey';
+export const protocolStorageKey = 'ProtocolKey';
+export const commandStorageKey = 'CommandKey';
 
 
 export interface InputChangeEventDetail {
     value: string | undefined | null;
 }
-  
+
 export interface InputCustomEvent extends CustomEvent {
     detail: InputChangeEventDetail;
     target: HTMLIonInputElement;

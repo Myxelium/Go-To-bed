@@ -1,7 +1,6 @@
-import { AddressStorageKey, PortStorageKey, ProtocolStorageKey } from "../gotobed.models";
+import { addressStorageKey, portStorageKey, protocolStorageKey } from '../gotobed.models';
 
 export const storeName = 'Gotobed';
-
 
 export interface GotobedState {
     command: string;
@@ -15,9 +14,9 @@ export interface GotobedState {
 export const initialGotoBedState: GotobedState = {
     command: '',
     isLoading: false,
-    protocol: localStorage.getItem(ProtocolStorageKey) ?? "http",
-    port: localStorage.getItem(PortStorageKey) ?? '3000',
-    address: localStorage.getItem(AddressStorageKey) ?? 'localhost:8080',
+    protocol: localStorage.getItem(protocolStorageKey) ?? 'http',
+    port: localStorage.getItem(portStorageKey) ?? '3000',
+    address: localStorage.getItem(addressStorageKey) ?? 'localhost:8080',
     isConnected: false,
 };
 

@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card class="noselect" (click)="presentAlert('shutdown')">
+        <ion-card class="noselect" (click)="commandAlert('shutdown')">
           <ion-card-header>
             <ion-card-title>Shutdown</ion-card-title>
           </ion-card-header>
@@ -30,7 +28,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-card class="noselect" (click)="presentAlert('sleep')">
+        <ion-card class="noselect" (click)="commandAlert('sleep')">
           <ion-card-header>
             <ion-card-title>Sleep</ion-card-title>
           </ion-card-header>
@@ -40,7 +38,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card class="noselect" (click)="presentAlert('reboot')">
+        <ion-card class="noselect" (click)="commandAlert('reboot')">
           <ion-card-header>
             <ion-card-title>Reboot</ion-card-title>
           </ion-card-header>
@@ -52,7 +50,7 @@
     </ion-row>
   <ion-row>
     <ion-col>
-      <ion-card class="noselect" (click)="presentAlert('logout')">
+      <ion-card class="noselect" (click)="commandAlert('logout')">
         <ion-card-header>
           <ion-card-title>Logout</ion-card-title>
         </ion-card-header>
