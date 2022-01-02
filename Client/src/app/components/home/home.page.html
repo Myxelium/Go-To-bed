@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <app-explore-container name="Home"></app-explore-container>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="noselect" (click)="presentAlert('shutdown')">
+          <ion-card-header>
+            <ion-card-title>Shutdown</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card class="noselect" (click)="presentAlert('sleep')">
+          <ion-card-header>
+            <ion-card-title>Sleep</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="bed-outline"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="noselect" (click)="presentAlert('reboot')">
+          <ion-card-header>
+            <ion-card-title>Reboot</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="reload-circle-outline"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card class="noselect" (click)="presentAlert('logout')">
+        <ion-card-header>
+          <ion-card-title>Logout</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</ion-content>

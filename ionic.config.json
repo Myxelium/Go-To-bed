@@ -1,9 +1,0 @@
-{
-  "name": "GoToBed",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular",
-  "id": "b295df72"
-}
