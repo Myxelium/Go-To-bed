@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { Storage } from "@ionic/storage-angular";
-import * as cordovaSQLiteDriver from "localforage-cordovasqlitedriver";
-import { BehaviorSubject, from, of } from "rxjs";
-import { filter, switchMap, tap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+import { BehaviorSubject, from, of } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: "root"
+    providedIn: 'root'
 })
 export class StorageService {
-    constructor(private storage: Storage) { 
-        //this.initializeStorage();
-    }
-
     private isStorageLoaded = new BehaviorSubject(false);
+
+    constructor(private storage: Storage) {
+        //this.initializeStorage(); TO BE USED ONCE MIGRATING TO NATIVE STORAGE
+    }
 
     async initializeStorage() {
         await this.storage.defineDriver(cordovaSQLiteDriver);

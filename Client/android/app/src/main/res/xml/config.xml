@@ -11,10 +11,6 @@
     <param name="onload" value="true"/>
   </feature>
 
-  <feature name="Ping">
-    <param name="android-package" value="com.spartan0nix.plugins.Ping"/>
-  </feature>
-
   <feature name="SQLitePlugin">
     <param name="android-package" value="io.sqlc.SQLitePlugin"/>
   </feature>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { gotobedReducer } from './gotobed.reducer';
-import { GotobedEffects } from './gotoved.effects';
+import { GotobedEffects } from './gotobed.effects';
 
 @NgModule({
     imports: [

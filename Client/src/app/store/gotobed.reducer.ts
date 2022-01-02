@@ -3,22 +3,22 @@ import { GotobedState, initialGotoBedState } from './gotobed.state';
 
 export function gotobedReducer(state = initialGotoBedState, action: GotobedActions): GotobedState {
     switch (action.type) {
-        case EGotobedActions.SendCommandChanged:
+        case EGotobedActions.sendCommandChanged:
             return {
                 ...state,
                 command: action.payload,
             };
-        case EGotobedActions.ProtocolSettingsChanged:
+        case EGotobedActions.protocolSettingsChanged:
             return {
                 ...state,
                 protocol: action.payload,
             };
-        case EGotobedActions.AddressSettingsChanged:
+        case EGotobedActions.addressSettingsChanged:
             return {
                 ...state,
                 address: action.payload,
             };
-        case EGotobedActions.PortSettingsChanged:
+        case EGotobedActions.portSettingsChanged:
             return {
                 ...state,
                 port: action.payload,
@@ -26,4 +26,4 @@ export function gotobedReducer(state = initialGotoBedState, action: GotobedActio
         default:
             return state;
     }
-}
+};

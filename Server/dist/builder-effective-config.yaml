@@ -6,7 +6,7 @@ productName: GoToBed
 copyright: Copyright © 2021
 mac:
   category: public.app-category.utilities
-  icon: assets/icon.icns
+  icon: buildResources/icon.icns
   target:
     - zip
     - dmg

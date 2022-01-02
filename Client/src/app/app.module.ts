@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { Drivers } from '@ionic/storage';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuPage } from './components/menu/menu.page';
@@ -16,17 +15,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppStoreModule } from './app-store.module';
 import { EffectsModule } from '@ngrx/effects';
 import { GotobedStoreModule } from './store/gotobed.store.module';
-import { GotobedEffects } from './store/gotoved.effects';
+import { GotobedEffects } from './store/gotobed.effects';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import * as CordovaSQLLiteDriver from 'localforage-cordovasqlitedriver'
+import * as CordovaSQLLiteDriver from 'localforage-cordovasqlitedriver';
 import { SettingsPage } from './components/settings/settings.page';
 import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 const components = [
   AppComponent,
-  MenuPage, 
-  ServerSettingsComponent, 
-  SettingsPage, 
+  MenuPage,
+  ServerSettingsComponent,
+  SettingsPage,
   ExploreContainerComponent
 ];
 
