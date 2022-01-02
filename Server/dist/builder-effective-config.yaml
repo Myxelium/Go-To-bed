@@ -1,0 +1,39 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.azaaxin
+productName: GoToBed
+copyright: Copyright © 2021
+mac:
+  category: public.app-category.utilities
+  icon: assets/icon.icns
+  target:
+    - zip
+    - dmg
+  publish:
+    - github
+win:
+  publisherName: Azaaxin
+  icon: buildResources/icon.png
+  publish:
+    - github
+  target:
+    - nsis
+linux:
+  target:
+    - AppImage
+    - tar.gz
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+publish:
+  - provider: github
+    owner: azaaxin
+    repo: accurate
+    vPrefixedTagName: true
+    private: true
+    releaseType: draft
+electronVersion: 15.3.0

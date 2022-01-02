@@ -1,0 +1,80 @@
+{
+  "name": "gotobed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "nodemon": "nodemon --exec npm start",
+    "build": "electron-builder --win portable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gotobed"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "cors": "^2.8.5",
+    "electron-first-run": "^3.0.0",
+    "electron-shutdown-command": "^2.0.1",
+    "express": "^4.17.1",
+    "ip": "^1.1.5",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "electron": "^15.3.0",
+    "electron-builder": "^21.2.0",
+    "electron-shutdown-command": "^2.0.1"
+  },
+  "build": {
+    "appId": "com.azaaxin",
+    "productName": "GoToBed",
+    "copyright": "Copyright © 2021",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "buildResources/icon.icns",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "win": {
+      "publisherName": "Azaaxin",
+      "icon": "buildResources/icon.png",
+      "publish": [
+        "github"
+      ],
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "azaaxin",
+        "repo": "accurate",
+        "vPrefixedTagName": true,
+        "private": true,
+        "releaseType": "draft"
+      }
+    ]
+  }
+}
