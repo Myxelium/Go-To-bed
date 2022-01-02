@@ -8,18 +8,18 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NetworkRequestsService {
-  constructor(private readonly _httpClient: HTTP, public toastController: ToastController) { }
+  constructor(private readonly httpClient: HTTP, public toastController: ToastController) { }
 
   public sendCommand(command: string, address: string, port: number, connectionProtocol?: string,) {
     const request: NetRequest = {
-      command: command,
-    }
+      command,
+    };
 
-    this._httpClient.setDataSerializer('json');
-    this._httpClient.setServerTrustMode('nocheck');
+    this.httpClient.setDataSerializer('json');
+    this.httpClient.setServerTrustMode('nocheck');
 
-    this._httpClient.post(encodeURI(`${connectionProtocol ?? 'http'}://${address + ":" + port}/commandbridge`), request, {
-      ContentType: 'text/html;'
+    this.httpClient.post(encodeURI(`${connectionProtocol ?? 'http'}://${address + ':' + port}/commandbridge`), request, {
+      contentType: 'text/html;'
     }).catch(response => {
       this.showErrorMessage(response);
     });

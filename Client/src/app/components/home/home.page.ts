@@ -12,17 +12,16 @@ import { getAddress, getCommandType, getPort, getProtocol } from '../../store/go
 })
 
 export class HomePage implements OnInit{
+  commandtype$ = this.store.select(getCommandType);
+  port = null;
+  address = '';
+  protocol = '';
 
   constructor(
     public alertController: AlertController,
     private httpCommand: NetworkRequestsService,
-    private store: Store) {}
-
-  commandtype$ = this.store.select(getCommandType);
-
-  port = null;
-  address = "";
-  protocol = "";
+    private store: Store
+  ) {}
 
   ngOnInit() {
     this.store
@@ -38,27 +37,21 @@ export class HomePage implements OnInit{
       .subscribe(protocol => (this.protocol = protocol));
   }
 
-  async presentAlert(commandType) {
+  async commandAlert(commandValue) {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'alert',
       header: 'Are you sure?',
-      message: `You are about to send a ${commandType} command to the device.`,
+      message: `You are about to send a ${commandValue} command to the device.`,
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-            this.commandtype$.subscribe(commandType => {
-              console.log(commandType);
-            });
-          }
+          cssClass: 'secondary'
         }, {
           text: 'Send',
           handler: () => {
-            this.store.dispatch(new SendCommandChanged(commandType));
-            this.httpCommand.sendCommand(commandType, this.address, this.port, this.protocol);
+            this.store.dispatch(new SendCommandChanged(commandValue));
+            this.httpCommand.sendCommand(commandValue, this.address, this.port, this.protocol);
           }
         }
       ]
