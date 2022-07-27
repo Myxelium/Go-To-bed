@@ -14,6 +14,7 @@ import { SearchHostPageRoutingModule } from './searchHost-routing.module';
     ExploreContainerComponentModule,
     SearchHostPageRoutingModule
   ],
+  exports: [SearchHostPage],
   declarations: [SearchHostPage]
 })
 export class SearchHostPageModule {}

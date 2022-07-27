@@ -7,6 +7,8 @@ export enum EGotobedActions {
     protocolSettingsChanged = '[GOTOBED] Protocol settings changed',
     portSettingsChanged = '[GOTOBED] Port settings changed',
     appInitialized = '[GOTOBED] App initialized',
+    macSettingsChanged = '[GOTOBED] Mac settings changed',
+    WolAddressChanged = '[GOTOBED] Wake On Lan address changed',
 }
 
 export class SendCommandChanged implements Action {
@@ -24,6 +26,11 @@ export class ProtocolSettingsChanged implements Action {
     constructor(public payload: string) { }
 }
 
+export class MacSettingsChanged implements Action {
+    public readonly type = EGotobedActions.macSettingsChanged;
+    constructor(public payload: string) { }
+}
+
 export class PortSettingsChanged implements Action {
     public readonly type = EGotobedActions.portSettingsChanged;
     constructor(public payload: string) { }
@@ -34,9 +41,16 @@ export class AppInitialized implements Action {
     constructor(public payload: LoadSettingsState) { }
 }
 
+export class WolAddressChanged implements Action {
+    public readonly type = EGotobedActions.WolAddressChanged;
+    constructor(public payload: string) { }
+}
+
 export type GotobedActions =
 SendCommandChanged |
 ProtocolSettingsChanged |
 PortSettingsChanged |
 SaveAddressSettings |
-AppInitialized;
+AppInitialized |
+MacSettingsChanged |
+WolAddressChanged;

@@ -25,3 +25,13 @@ export const getPort = createSelector(
     (state: GotobedState) => state.port
 );
 
+export const getMacAddress = createSelector(
+    gotobedState,
+    (state: GotobedState) => state.macAddress
+);
+
+export const getWolAddress = createSelector(
+    gotobedState,
+    (state: GotobedState) => state.wolAddress
+);
+

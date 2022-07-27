@@ -1,3 +1,4 @@
+import { macStorageKey, wolStorageKey } from './../gotobed.models';
 import { portStorageKey } from '../gotobed.models';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, concatLatestFrom, ROOT_EFFECTS_INIT } from '@ngrx/effects';
@@ -5,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { map, tap, withLatestFrom } from 'rxjs/operators';
 import { addressStorageKey, protocolStorageKey } from '../gotobed.models';
 import { StorageService } from '../services/storage.service';
-import { AppInitialized, EGotobedActions, ProtocolSettingsChanged, SaveAddressSettings } from './gotobed.actions';
+import { AppInitialized, EGotobedActions, MacSettingsChanged, ProtocolSettingsChanged, SaveAddressSettings, WolAddressChanged } from './gotobed.actions';
 
 @Injectable()
 export class GotobedEffects {
@@ -46,6 +47,22 @@ export class GotobedEffects {
         withLatestFrom(this.store),
         tap(([action]) => {
             localStorage.setItem(portStorageKey, action.payload);
+        })
+    ), { dispatch: false });
+
+    macAddressSettings$ = createEffect(() => this.actions$.pipe(
+        ofType<MacSettingsChanged>(EGotobedActions.macSettingsChanged),
+        withLatestFrom(this.store),
+        tap(([action]) => {
+            localStorage.setItem(macStorageKey, action.payload);
+        })
+    ), { dispatch: false });
+
+    wolAddressSettings$ = createEffect(() => this.actions$.pipe(
+        ofType<WolAddressChanged>(EGotobedActions.WolAddressChanged),
+        withLatestFrom(this.store),
+        tap(([action]) => {
+            localStorage.setItem(wolStorageKey, action.payload);
         })
     ), { dispatch: false });
 
