@@ -5,12 +5,12 @@ const cors = require('cors');
 const AutoLaunch = require('auto-launch');
 const server = express();
 const ip = require('ip');
+const macaddress = require('macaddress');
 const firstRun = require('electron-first-run');
-
+const bonjour = require('bonjour')()
 const autoLaunch = new AutoLaunch({
   name: 'GoToBed Server',
   path: process.env.PORTABLE_EXECUTABLE_DIR + '/GoToBed.exe',
-
 });
 const paramPort = app.commandLine.getSwitchValue("port") == "" ? "3000" : app.commandLine.getSwitchValue("port");
 const isFirstRun = firstRun();
@@ -101,6 +101,10 @@ server.post('/commandbridge', function (req, res) {
 }})
 
 app.on('ready', async () => {
+  macaddress.one().then(function (mac) {
+    bonjour.publish({ name: 'GoToBed-Server', type: 'http', port: paramPort, txt: mac})
+  });
+
   if(isFirstRun) {
     const firstSetup = dialog.showMessageBox(null, options);
     console.log(firstSetup);

@@ -23,6 +23,16 @@ export function gotobedReducer(state = initialGotoBedState, action: GotobedActio
                 ...state,
                 port: action.payload,
             };
+        case EGotobedActions.macSettingsChanged:
+            return {
+                ...state,
+                macAddress: action.payload,
+            };
+        case EGotobedActions.WolAddressChanged:
+            return {
+                ...state,
+                wolAddress: action.payload,
+            };
         default:
             return state;
     }

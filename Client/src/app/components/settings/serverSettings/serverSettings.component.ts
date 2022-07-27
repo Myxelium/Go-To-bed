@@ -1,7 +1,7 @@
-import { getAddress, getPort, getProtocol } from './../../../store/gotobed.selectors';
+import { getAddress, getMacAddress, getPort, getProtocol, getWolAddress } from './../../../store/gotobed.selectors';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import { PortSettingsChanged, ProtocolSettingsChanged, SaveAddressSettings } from 'src/app/store/gotobed.actions';
+import { MacSettingsChanged, PortSettingsChanged, ProtocolSettingsChanged, SaveAddressSettings, WolAddressChanged } from 'src/app/store/gotobed.actions';
 import { GotobedState } from 'src/app/store/gotobed.state';
 import { InputCustomEvent } from 'src/app/gotobed.models';
 
@@ -14,6 +14,8 @@ export class ServerSettingsComponent implements OnInit{
   port = null;
   address = '';
   protocol = '';
+  macAddress = '';
+  wolAddress = '';
 
   constructor(private store: Store<GotobedState>) { }
 
@@ -30,6 +32,14 @@ export class ServerSettingsComponent implements OnInit{
     this.store
       .select(getProtocol)
       .subscribe(protocol => (this.protocol = protocol));
+
+    this.store
+      .select(getMacAddress)
+      .subscribe(macAddress => (this.macAddress = macAddress));
+    
+    this.store
+      .select(getWolAddress)
+      .subscribe(wolAddress => (this.wolAddress = wolAddress));
   }
 
   onProtocolChange(protocol: InputCustomEvent){
@@ -43,5 +53,13 @@ export class ServerSettingsComponent implements OnInit{
   onPortChange(port: InputCustomEvent){
     console.log(port.detail.value);
     this.store.dispatch(new PortSettingsChanged(port.detail.value));
+  }
+  onMacAdressChange(macAddress: InputCustomEvent){
+    console.log(macAddress.detail.value);
+    this.store.dispatch(new MacSettingsChanged(macAddress.detail.value));
+  }
+  onWolAddressChange(wolAddress: InputCustomEvent){
+    console.log(wolAddress.detail.value);
+    this.store.dispatch(new WolAddressChanged(wolAddress.detail.value));
   }
 }

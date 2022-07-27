@@ -17,4 +17,15 @@
     <ion-label position="fixed">Port</ion-label>
     <ion-input number placeholder="8080" (ionChange)="onPortChange($event)" [value]="port"></ion-input>
   </ion-item>
+  <ion-list-header>
+    <ion-label> WOL Settings </ion-label>
+  </ion-list-header>
+  <ion-item>
+    <ion-label position="fixed">Mac Address</ion-label>
+    <ion-input placeholder="MM:MM:MM:SS:SS:SS" (ionChange)="onMacAdressChange($event)" [value]="macAddress"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Wol Address</ion-label>
+    <ion-input placeholder="Ex: 192.168.1.255" (ionChange)="onWolAddressChange($event)" [value]="wolAddress"></ion-input>
+  </ion-item>
 </ion-list>
