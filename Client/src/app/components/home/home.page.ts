@@ -1,3 +1,4 @@
+import { WOLService } from './../../services/WOL.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
@@ -20,7 +21,8 @@ export class HomePage implements OnInit{
   constructor(
     public alertController: AlertController,
     private httpCommand: NetworkRequestsService,
-    private store: Store
+    private store: Store,
+    private WOLService: WOLService
   ) {}
 
   ngOnInit() {
@@ -58,5 +60,9 @@ export class HomePage implements OnInit{
     });
 
     await alert.present();
+  }
+
+  wakeUp(){
+    this.WOLService.wakeUp();
   }
 }

@@ -1,6 +1,6 @@
 {
 	"appId": "op.ionic.starter",
-	"appName": "MyApp",
+	"appName": "GoToBed",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"cordova": {

@@ -1,3 +1,5 @@
+import { WOLService } from './services/WOL.service';
+import { SearchHostPage } from './components/searchHost/searchHost.page';
 import { ExploreContainerComponent } from './components/explore-container/explore-container.component';
 import { ServerSettingsComponent } from './components/settings/serverSettings/serverSettings.component';
 import { NgModule } from '@angular/core';
@@ -26,7 +28,8 @@ const components = [
   MenuPage,
   ServerSettingsComponent,
   SettingsPage,
-  ExploreContainerComponent
+  ExploreContainerComponent,
+  SearchHostPage
 ];
 
 @NgModule({
@@ -44,10 +47,10 @@ const components = [
     GotobedStoreModule,
     IonicStorageModule.forRoot({
       name: 'gotobedStorage',
-      driverOrder: [CordovaSQLLiteDriver._driver, Drivers.IndexedDB]})
+      driverOrder: [CordovaSQLLiteDriver._driver, Drivers.IndexedDB]}),
   ],
   providers: [HTTP, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
-  exports: [NetworkRequestsService]
+  exports: [NetworkRequestsService, WOLService]
 })
 export class AppModule {}
