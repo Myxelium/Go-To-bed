@@ -1,10 +1,10 @@
-import { WolAddressChanged } from './../../store/gotobed.actions';
+import { PortSettingsChanged, SaveAddressSettings, WolAddressChanged } from './../../store/gotobed.actions';
 import { Component, OnInit } from '@angular/core';
-import { Zeroconf, ZeroconfResult, ZeroconfService } from "@ionic-native/zeroconf";
+import { Zeroconf, ZeroconfService } from "@ionic-native/zeroconf";
 import { Store } from '@ngrx/store';
-import { ServiceOptions } from 'src/app/gotobed.models';
 import { MacSettingsChanged } from 'src/app/store/gotobed.actions';
 import { GotobedState } from 'src/app/store/gotobed.state';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-searchhost',
   templateUrl: 'searchHost.page.html',
@@ -13,7 +13,10 @@ import { GotobedState } from 'src/app/store/gotobed.state';
 export class SearchHostPage implements OnInit {
   netWorkDevices: ZeroconfService[] = [];
 
-  constructor(private store: Store<GotobedState>) {}
+  constructor(
+    private store: Store<GotobedState>,
+    public toastController: ToastController
+  ) {}
 
   ngOnInit(): void {
     this.scanDevices();
@@ -31,10 +34,13 @@ export class SearchHostPage implements OnInit {
   }
 
   saveWolDevice(device: ZeroconfService) {
+    this.presentToast();
     this.store.dispatch(new MacSettingsChanged(device.txtRecord.mac));
     this.store.dispatch(new WolAddressChanged(this.convertToBroadcast(device.ipv4Addresses[0])));
+    this.store.dispatch(new SaveAddressSettings(device.ipv4Addresses[0]));
+    this.store.dispatch(new PortSettingsChanged(device.port.toString()));
   }
-  
+
   refresh(event) {
     console.log('Begin async operation');
     this.scanDevices();
@@ -42,6 +48,14 @@ export class SearchHostPage implements OnInit {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your settings have been saved.',
+      duration: 2000,
+    });
+    toast.present();
   }
 
   private convertToBroadcast(ip: string) {
