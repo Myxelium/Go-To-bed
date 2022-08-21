@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Search Host</ion-title>
+    <ion-title>Search computer</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +13,33 @@
       <ion-title size="large">WOL</ion-title>
     </ion-toolbar>
   </ion-header>
-<!-- WOL -->
-<ion-list>
-  <ion-item *ngIf="netWorkDevices.length == 0">
-    <ion-label>No Devices found</ion-label>
-  </ion-item>
-      <ion-item-sliding *ngFor="let device of netWorkDevices">
-      <ion-item>
-        <ion-label>{{device.ipv4Addresses[0]}}</ion-label>
-      </ion-item>
-      <ion-item-options>
-        <ion-item-option (click)="saveWolDevice(device)">Save</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-</ion-list>
-<!-- wol end -->
+  <!-- WOL -->
+  <ion-list>
+    <ion-item *ngIf="netWorkDevices.length === 0">
+      <ion-label>No Devices found</ion-label>
+    </ion-item>
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let device of netWorkDevices">
+        <ion-item slot="header" color="light">
+          <ion-icon name="desktop-outline"></ion-icon>
+          <ion-label>{{device.ipv4Addresses[0]}}</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-item>
+            <ion-label>IP: {{device.ipv4Addresses[0]}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>PORT: {{device.PORT}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>MAC-Address: {{device.txtRecord.mac}}</ion-label>
+          </ion-item>
+          <ion-button expand="full" (click)="saveWolDevice(null)"
+            >Configure</ion-button
+          >
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-list>
+  <!-- wol end -->
 </ion-content>
