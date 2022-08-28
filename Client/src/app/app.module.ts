@@ -1,5 +1,5 @@
 import { WOLService } from './services/WOL.service';
-import { SearchHostPage } from './components/searchHost/searchHost.page';
+import { SearchHostPage } from './components/search-host/search-host.page';
 import { ExploreContainerComponent } from './components/explore-container/explore-container.component';
 import { ServerSettingsComponent } from './components/settings/serverSettings/serverSettings.component';
 import { NgModule } from '@angular/core';
