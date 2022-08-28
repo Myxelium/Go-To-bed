@@ -2,9 +2,9 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SearchHostPage } from './searchHost.page';
+import { SearchHostPage } from './search-host.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-import { SearchHostPageRoutingModule } from './searchHost-routing.module';
+import { SearchHostPageRoutingModule } from './search-host-routing.module';
 
 @NgModule({
   imports: [

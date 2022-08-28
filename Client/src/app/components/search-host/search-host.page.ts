@@ -7,8 +7,8 @@ import { GotobedState } from 'src/app/store/gotobed.state';
 import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-searchhost',
-  templateUrl: 'searchHost.page.html',
-  styleUrls: ['searchHost.page.scss']
+  templateUrl: 'search-host.page.html',
+  styleUrls: ['search-host.page.scss']
 })
 export class SearchHostPage implements OnInit {
   netWorkDevices: ZeroconfService[] = [];

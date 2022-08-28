@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from '../home/home.page';
-import { SearchHostPage } from '../searchHost/searchHost.page';
+import { SearchHostPage } from '../search-host/search-host.page';
 import { SettingsPage } from '../settings/settings.page';
 
 const routes: Routes = [

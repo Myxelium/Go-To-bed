@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchHostPage } from './searchHost.page';
+import { SearchHostPage } from './search-host.page';
 
 const routes: Routes = [
   {
