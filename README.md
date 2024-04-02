@@ -1,6 +1,6 @@
 # What is this?
 I'm lazy and don't like to get up from bed to turn off my PC so i spent a while creating an application to turn off my pc for me.
-	This application can turn off/on, logout, sleep and restart your pc remotely with a press on a button.
+	This application can turn off/on, logout, sleep and restart your pc remotely with a press of a button.
 
 
 ## Build
